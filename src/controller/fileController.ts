@@ -12,6 +12,8 @@ export default class FileController {
         const buffer = new Buffer(data.toString().split(',')[1], 'base64');
         const tmpFilename = 'tmp_' + md5(name + req.ip) + '.' + ext;
 
+        console.log(name)
+
         if (firstChunk && fs.existsSync('./uploads/' + tmpFilename)) {
             fs.unlinkSync('./uploads/' + tmpFilename);
         }
